@@ -14,10 +14,10 @@ function App() {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   ]);
@@ -38,12 +38,22 @@ function App() {
       [1, -1], [1, 0], [1, 1]
     ];
 
-
-  
     // loop through each item - gained position
     for (let row = 0; row < totalRows; row++) {
       for (let col = 0; col < totalColumns; col++) {
-        console.log('position', row, col);
+        // how do I implement the coordinates into each position?
+        // console.log('position', row, col);
+
+        // checking coordinates here...
+        // top left
+        if ( row > 0 && col > 0 && theGrid[row - 1][col - 1] === 1) {
+          console.log(`${row}-${col} topLeft true`);
+        }
+
+
+
+
+
       }
     }
 
