@@ -22,10 +22,36 @@ function App() {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   ]);
 
+  const totalRows = theGrid.length;
+  const totalColumns = theGrid[0].length;
+
+  // main function
   function runConwaysLife(theGrid) {
     console.log('running life', theGrid);
 
+    let livingNeighbors = 0;
+    // lets think in terms of coordinates X & Y
+    // [row, column] - x, y
+    const coordinates = [
+      [-1, -1], [-1, 0], [-1, 1],
+      [0, -1], ['cell'], [0, 1],
+      [1, -1], [1, 0], [1, 1]
+    ];
+
+
+  
+    // loop through each item - gained position
+    for (let row = 0; row < totalRows; row++) {
+      for (let col = 0; col < totalColumns; col++) {
+        console.log('position', row, col);
+      }
+    }
+
+    // every item has cells around it. 
     // check parameters of each cell
+
+
+
     // update each cell based on parameters
     // reset theGrid Array
 
