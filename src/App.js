@@ -13,11 +13,11 @@ function App() {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   ]);
@@ -31,40 +31,34 @@ function App() {
 
     let livingNeighbors = 0;
     // lets think in terms of coordinates X & Y
-    // [row, column] - x, y
+    // [row, column] - x, y / y, x? 
     const coordinates = [
       [-1, -1], [-1, 0], [-1, 1],
-      [0, -1], ['cell'], [0, 1],
+      [0, -1], ['target'], [0, 1],
       [1, -1], [1, 0], [1, 1]
     ];
 
-    // loop through each item - gained position
+    // loop through each item - position
     for (let row = 0; row < totalRows; row++) {
       for (let col = 0; col < totalColumns; col++) {
-        // how do I implement the coordinates into each position?
         // console.log('position', row, col);
 
-        // checking coordinates here...
-        // top left
-        if ( row > 0 && col > 0 && theGrid[row - 1][col - 1] === 1) {
-          console.log(`${row}-${col} topLeft true`);
+        // this is going through every position of every cell in grid...
+        for (let position of coordinates) {
+          const rowPoint = row + position[0];
+          const columnPoint = col + position[1];
+
+          // console.log('NEW', rowPoint, columnPoint);
+          // boundaries of grid have to be considered...
+          if (rowPoint >= 0 && rowPoint < totalRows && columnPoint >= 0 && columnPoint < totalColumns && theGrid[rowPoint][columnPoint] > 0) {
+            console.log('true');
+            // count living neighbors here? 
+          }
         }
-
-
-
-
 
       }
     }
-
-    // every item has cells around it. 
-    // check parameters of each cell
-
-
-
-    // update each cell based on parameters
-    // reset theGrid Array
-
+    // reset theGrid for display
 
   }
 
