@@ -1,23 +1,47 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  // the rules
+  // cell < 2 live neighbors dies
+  // cell == 2-3 live neighbors lives
+  // cell > 3 live neighbors dies 
+  // dead cell === 3 live neighbors comes back to life
+
+  const [theGrid, setTheGrid] = useState([
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  ]);
+
+  function runConwaysLife(theGrid) {
+    console.log('running life', theGrid);
+
+    // check parameters of each cell
+    // update each cell based on parameters
+    // reset theGrid Array
+
+
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='lifeGrid'>
+        {theGrid.flat().map((cell, index) => (
+          <div key={index} className='gridCell'>{cell}</div>
+        ))}
+      </div>
+
+      <button onClick={() => runConwaysLife(theGrid)}>RUN LIFE</button>
     </div>
   );
 }
